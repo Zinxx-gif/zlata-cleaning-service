@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zlatacleaningservice.com/sitemap.xml
+Sitemap: https://www.zlatacleaningservice.com/sitemap.xml
