@@ -635,28 +635,12 @@ ul { list-style: none; }
 
 /* ===== QUOTE BAND ===== */
 .quote-band {
-  background: linear-gradient(135deg, #6B1343 0%, #8E1A5A 60%, #7A1750 100%);
+  background: #1A1A2E;
   color: var(--white);
   padding: 4.5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-.quote-band::before {
-  content: '';
-  position: absolute;
-  top: -50px; left: -50px;
-  width: 220px; height: 220px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 50%;
-}
-.quote-band::after {
-  content: '';
-  position: absolute;
-  bottom: -30px; right: -30px;
-  width: 160px; height: 160px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 50%;
 }
 .quote-band blockquote {
   font-family: 'Playfair Display', serif;
@@ -691,14 +675,14 @@ ul { list-style: none; }
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--yellow);
+  color: #00C4CC;
   text-decoration: none;
   transition: opacity 0.18s;
 }
 .quote-cta .phone-big:hover { opacity: 0.85; }
 .quote-cta .sub {
   font-size: 0.82rem;
-  opacity: 0.65;
+  color: rgba(255,255,255,0.5);
 }
 
 /* ===== PAGE HERO (all inner pages) ===== */
