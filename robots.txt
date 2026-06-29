@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zlatacleaningservice.com/sitemap.xml
