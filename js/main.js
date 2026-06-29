@@ -73,6 +73,25 @@ document.querySelectorAll('.detail-row, .contact-detail').forEach(el => {
   reveal.observe(el);
 });
 
+// Cookie consent banner
+(function () {
+  var banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  if (!localStorage.getItem('cookieConsent')) {
+    requestAnimationFrame(function () {
+      setTimeout(function () { banner.classList.add('visible'); }, 120);
+    });
+  }
+  document.getElementById('cookie-accept').addEventListener('click', function () {
+    localStorage.setItem('cookieConsent', 'accepted');
+    banner.classList.remove('visible');
+  });
+  document.getElementById('cookie-decline').addEventListener('click', function () {
+    localStorage.setItem('cookieConsent', 'declined');
+    banner.classList.remove('visible');
+  });
+})();
+
 // Trust bar items slide in from left on load
 const trustItems = document.querySelectorAll('.trust-bar-inner > *');
 if (trustItems.length) {
