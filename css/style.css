@@ -403,7 +403,7 @@ ul { list-style: none; }
   margin-bottom: 2px;
 }
 .hero-phone-card .ph-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
@@ -1201,7 +1201,7 @@ ul { list-style: none; }
   margin-bottom: 0.4rem;
 }
 .phone-hero-card .ph-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
 }
