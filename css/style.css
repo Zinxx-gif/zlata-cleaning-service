@@ -136,7 +136,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 90px;
   gap: 1rem;
 }
 
@@ -150,7 +150,7 @@ ul { list-style: none; }
 
 .nav-logo-img {
   width: auto;
-  height: 60px;
+  height: 80px;
   border-radius: 0;
   object-fit: contain;
   border: none;
@@ -501,7 +501,7 @@ ul { list-style: none; }
 .service-card {
   background: var(--white);
   border-radius: 16px;
-  padding: 1.75rem;
+  padding: 2.25rem;
   border-left: 4px solid var(--teal);
   box-shadow: 0 2px 16px rgba(26,26,46,0.06);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
@@ -563,7 +563,7 @@ ul { list-style: none; }
 /* ===== ABOUT STRIP ===== */
 .about-strip {
   background: var(--teal-light);
-  padding: 5rem 0;
+  padding: 4rem 0 3rem;
 }
 .about-strip-grid {
   display: grid;
@@ -578,22 +578,22 @@ ul { list-style: none; }
   gap: 1.5rem;
 }
 .about-portrait {
-  width: 220px;
-  height: 260px;
+  width: 240px;
+  height: 240px;
   background: var(--white);
   border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0,196,204,0.25);
   animation: blob-morph 10s ease-in-out infinite;
 }
 .about-portrait img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
 }
 .trust-badges {
   display: flex;
@@ -625,7 +625,7 @@ ul { list-style: none; }
 
 /* ===== QUOTE BAND ===== */
 .quote-band {
-  background: var(--berry);
+  background: linear-gradient(135deg, #6B1343 0%, #8E1A5A 60%, #7A1750 100%);
   color: var(--white);
   padding: 4.5rem 0;
   text-align: center;
@@ -650,13 +650,14 @@ ul { list-style: none; }
 }
 .quote-band blockquote {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-style: italic;
-  line-height: 1.45;
-  max-width: 680px;
+  line-height: 1.4;
+  max-width: 720px;
   margin: 0 auto 1.75rem;
   position: relative;
   z-index: 1;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.25);
 }
 .quote-band blockquote::before {
   content: '\201C';
@@ -906,7 +907,7 @@ ul { list-style: none; }
 
 .service-sidebar {
   position: sticky;
-  top: 88px;
+  top: 106px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -1082,22 +1083,22 @@ ul { list-style: none; }
   gap: 1.75rem;
 }
 .portrait-blob {
-  width: 280px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
   background: var(--teal-light);
   border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,196,204,0.2);
   animation: blob-morph 9s ease-in-out infinite;
 }
 .portrait-blob img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
 }
 .about-stats {
   display: grid;
@@ -1423,8 +1424,8 @@ ul { list-style: none; }
 /* ===== WHATSAPP FLOAT BUTTON ===== */
 .whatsapp-float {
   position: fixed;
-  bottom: 1.75rem;
-  right: 1.5rem;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 1100;
   display: flex;
   align-items: center;
