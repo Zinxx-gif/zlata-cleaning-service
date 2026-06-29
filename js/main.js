@@ -25,8 +25,12 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   }
 });
 
-// Hero spotlight — instant, no lerp
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasPointer    = window.matchMedia('(pointer: fine)').matches;
+
+// Hero spotlight — instant, no lerp; pointer devices only
 (function () {
+  if (reducedMotion || !hasPointer) return;
   var hero = document.querySelector('.hero');
   if (!hero) return;
   hero.addEventListener('mousemove', function (e) {
@@ -47,10 +51,10 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   }, { passive: true });
 })();
 
-// Custom cursor
+// Custom cursor — pointer devices only, skip if reduced motion
 (function () {
   var dot = document.getElementById('cursor-dot');
-  if (!dot || !window.matchMedia('(pointer: fine)').matches) return;
+  if (!dot || reducedMotion || !hasPointer) return;
   var mx = 0, my = 0, cx = 0, cy = 0;
   document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
   (function tick() {
@@ -83,15 +87,14 @@ if (localStorage.getItem('cookieConsent')) {
 (function () {
   if (typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Trust bar always runs (subtle, short)
+  // Trust bar entrance (runs even without reduced motion check — subtle, load-time only)
   var trustItems = document.querySelectorAll('.trust-bar-inner > *');
-  if (trustItems.length && !reduced) {
+  if (trustItems.length && !reducedMotion) {
     gsap.from(trustItems, { x: -20, opacity: 0, duration: 0.4, stagger: 0.09, delay: 0.2, ease: 'power2.out' });
   }
 
-  if (reduced) return;
+  if (reducedMotion) return;
 
   // Section headings
   document.querySelectorAll('.section-title, .section-label').forEach(function (el) {

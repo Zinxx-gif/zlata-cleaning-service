@@ -1848,6 +1848,14 @@ ul { list-style: none; }
   background: rgba(0,196,204,0.55);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+  #cursor-dot { display: none !important; }
+}
+@media (pointer: coarse) {
+  #cursor-dot { display: none !important; }
+}
+
 /* ===== SCROLL PROGRESS BAR ===== */
 #scroll-progress {
   position: fixed;
