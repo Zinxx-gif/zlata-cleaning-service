@@ -1380,10 +1380,11 @@ ul { list-style: none; }
 
 /* ===== TRUST BAR ===== */
 .trust-bar {
-  background: var(--ink);
+  background: #0D1228;
   color: rgba(255,255,255,0.85);
-  padding: 0.65rem 0;
+  padding: 0.8rem 0;
   text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 .trust-bar-inner {
   display: flex;
@@ -1402,11 +1403,21 @@ ul { list-style: none; }
 .trust-bar-inner .pipe {
   opacity: 0.3;
 }
-.trust-bar--hero {
-  background: rgba(0,0,0,0.3);
-  border-top: none;
-  padding: 0.65rem 0;
-  margin-top: 2.5rem;
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.reveal-up.revealed,
+.reveal-fade.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== WHATSAPP FLOAT BUTTON ===== */

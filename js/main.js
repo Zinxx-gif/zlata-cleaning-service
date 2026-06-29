@@ -9,7 +9,6 @@ if (hamburger && mobileNav) {
   });
 }
 
-// Close mobile nav on link click
 document.querySelectorAll('.nav-mobile a').forEach(link => {
   link.addEventListener('click', () => {
     mobileNav.classList.remove('open');
@@ -26,20 +25,68 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   }
 });
 
-// Smooth reveal on scroll
-const observer = new IntersectionObserver((entries) => {
+// Scroll-reveal with IntersectionObserver
+const reveal = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
+      entry.target.classList.add('revealed');
+      reveal.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.service-card, .service-card-full, .contact-detail, .stat-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-  observer.observe(el);
+// Section headings slide up
+document.querySelectorAll('.section-title, .section-label').forEach(el => {
+  el.classList.add('reveal-up');
+  reveal.observe(el);
 });
+
+// Service cards fade + slide up
+document.querySelectorAll('.service-card, .service-card-full').forEach(el => {
+  el.classList.add('reveal-up');
+  reveal.observe(el);
+});
+
+// Testimonial cards staggered fade in
+document.querySelectorAll('.testimonial-card').forEach((el, i) => {
+  el.classList.add('reveal-fade');
+  el.style.transitionDelay = `${i * 80}ms`;
+  reveal.observe(el);
+});
+
+// Related cards and location cards slide up
+document.querySelectorAll('.related-card, .location-info-card, .sidebar-cta-card, .sidebar-card').forEach(el => {
+  el.classList.add('reveal-up');
+  reveal.observe(el);
+});
+
+// Stat cards (about page)
+document.querySelectorAll('.stat-card, .value-item').forEach((el, i) => {
+  el.classList.add('reveal-fade');
+  el.style.transitionDelay = `${i * 60}ms`;
+  reveal.observe(el);
+});
+
+// Contact detail rows
+document.querySelectorAll('.detail-row, .contact-detail').forEach(el => {
+  el.classList.add('reveal-up');
+  reveal.observe(el);
+});
+
+// Trust bar items slide in from left on load
+const trustItems = document.querySelectorAll('.trust-bar-inner > *');
+if (trustItems.length) {
+  trustItems.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-16px)';
+    el.style.transition = `opacity 0.4s ease ${i * 90}ms, transform 0.4s ease ${i * 90}ms`;
+  });
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      trustItems.forEach(el => {
+        el.style.opacity = '';
+        el.style.transform = '';
+      });
+    }, 200);
+  });
+}
