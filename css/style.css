@@ -1607,3 +1607,111 @@ ul { list-style: none; }
   /* Inner page hero heading */
   .page-hero h1 { font-size: 1.8rem; }
 }
+
+/* ===== HOVER EFFECTS & MICRO-INTERACTIONS ===== */
+
+/* 1. Service cards: lift + left border expands */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-width 0.3s ease;
+}
+.service-card::after {
+  transition: opacity 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 36px rgba(26,26,46,0.14);
+  border-left-width: 7px;
+}
+.service-card-full {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-width 0.3s ease;
+}
+.service-card-full:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(26,26,46,0.12);
+  border-left-width: 9px;
+}
+
+/* 2. Buttons: scale + brightness */
+.btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease,
+              filter 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--berry-dark);
+  border-color: var(--berry-dark);
+  transform: scale(1.03);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 24px rgba(142,26,90,0.35);
+}
+.btn-teal:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  transform: scale(1.03);
+  filter: brightness(1.08);
+}
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--white);
+  transform: scale(1.03);
+}
+
+/* 3. Location/related card links: teal underline slides in from left */
+.related-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+.related-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+.related-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,196,204,0.15);
+  color: var(--teal-dark);
+}
+.related-card:hover::before {
+  width: 100%;
+}
+
+/* 4. Testimonial cards: subtle lift + teal border glow */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,196,204,0.2), 0 2px 12px rgba(26,26,46,0.06);
+  border-top-color: var(--teal-dark);
+}
+
+/* 5. Nav links: standardise transition to 0.3s (underline already implemented) */
+.nav-links a {
+  transition: color 0.3s ease;
+}
+.nav-links a::after {
+  transition: width 0.3s ease;
+}
+
+/* 6. Footer social links: scale + teal colour shift */
+.footer-contact-row a {
+  transition: color 0.3s ease;
+}
+.footer-contact-row a:hover {
+  color: var(--teal);
+}
+.fb-link {
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.fb-link:hover {
+  background: rgba(0,196,204,0.12);
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: scale(1.05);
+}
