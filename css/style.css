@@ -302,7 +302,7 @@ ul { list-style: none; }
 
 /* ===== HERO (HOMEPAGE) ===== */
 .hero {
-  background: #0D1228 url('images/IMG_0863.jpg') center center / cover no-repeat;
+  background: #0D1228 url('../images/IMG_0863.jpg') center center / cover no-repeat;
   color: var(--white);
   padding: 4.5rem 0 7rem;
   overflow: hidden;
@@ -331,10 +331,6 @@ ul { list-style: none; }
   gap: 3rem;
   position: relative;
   z-index: 1;
-}
-.hero-grid--full {
-  grid-template-columns: 1fr;
-  max-width: 760px;
 }
 
 .hero-badge {
@@ -1407,9 +1403,9 @@ ul { list-style: none; }
   opacity: 0.3;
 }
 .trust-bar--hero {
-  background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 0.75rem 0 0;
+  background: rgba(0,0,0,0.3);
+  border-top: none;
+  padding: 0.65rem 0;
   margin-top: 2.5rem;
 }
 
