@@ -332,6 +332,10 @@ ul { list-style: none; }
   position: relative;
   z-index: 1;
 }
+.hero-grid--full {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+}
 
 .hero-badge {
   display: inline-flex;
