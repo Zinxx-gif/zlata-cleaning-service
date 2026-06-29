@@ -1478,12 +1478,9 @@ ul { list-style: none; }
   color: var(--muted);
   font-weight: 500;
 }
-.google-g {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: conic-gradient(#4285F4 0deg 90deg, #EA4335 90deg 180deg, #FBBC04 180deg 270deg, #34A853 270deg 360deg);
+.google-label svg {
   flex-shrink: 0;
+  vertical-align: middle;
 }
 
 /* ===== RESPONSIVE ===== */
