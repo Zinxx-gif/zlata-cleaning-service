@@ -1774,3 +1774,79 @@ ul { list-style: none; }
   transition: color 0.2s;
 }
 .cookie-policy-link:hover { color: #00C4CC; }
+
+/* ===== WIPE: DARK ↔ LIGHT ===== */
+.wipe-dark-to-white::before { background: #1A1A2E; }
+.wipe-white-to-dark::before { background: var(--white); }
+.wipe-dark-to-white { background: var(--white); }
+.wipe-white-to-dark { background: #1A1A2E; }
+
+/* ===== DARK SECTION MODIFIER ===== */
+.section--dark { background: #1A1A2E !important; }
+.section--dark .section-label { color: rgba(0,196,204,0.9); }
+.section--dark .section-title { color: #fff; }
+.section--dark .section-title em { color: #00C4CC; }
+.section--dark p.sub,
+.section--dark .services-header p.sub { color: rgba(255,255,255,0.6); }
+.section--dark .services-header { color: #fff; }
+
+.section--dark .service-card {
+  background: #242444;
+  color: #fff;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+}
+.section--dark .service-card::after { background: rgba(0,196,204,0.12); }
+.section--dark .service-card:hover { box-shadow: 0 8px 36px rgba(0,0,0,0.45); }
+.section--dark .service-card h3 { color: #fff; }
+.section--dark .service-card p { color: rgba(255,255,255,0.65); }
+.section--dark .service-card .service-duration { color: #00C4CC; }
+
+.section--dark .related-card {
+  background: #242444;
+  color: rgba(255,255,255,0.85);
+}
+.section--dark .related-card:hover {
+  background: #2A2A56;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+/* ===== CUSTOM CURSOR ===== */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, [role="button"] { cursor: none; }
+}
+#cursor-dot {
+  display: none;
+  width: 10px;
+  height: 10px;
+  background: #00C4CC;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+@media (pointer: fine) {
+  #cursor-dot { display: block; }
+}
+#cursor-dot.hovering {
+  transform: translate(-50%, -50%) scale(2.8);
+  background: rgba(0,196,204,0.55);
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #00C4CC;
+  z-index: 100000;
+  width: 0%;
+  pointer-events: none;
+  box-shadow: 0 0 6px rgba(0,196,204,0.5);
+}

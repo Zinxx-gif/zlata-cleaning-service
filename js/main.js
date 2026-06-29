@@ -25,53 +25,35 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   }
 });
 
-// Scroll-reveal with IntersectionObserver
-const reveal = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      reveal.unobserve(entry.target);
-    }
+// Scroll progress bar
+(function () {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', function () {
+    var s = document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = (h > 0 ? (s / h * 100) : 0) + '%';
+  }, { passive: true });
+})();
+
+// Custom cursor
+(function () {
+  var dot = document.getElementById('cursor-dot');
+  if (!dot || !window.matchMedia('(pointer: fine)').matches) return;
+  var mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
+  (function tick() {
+    cx += (mx - cx) * 0.15;
+    cy += (my - cy) * 0.15;
+    dot.style.left = cx + 'px';
+    dot.style.top  = cy + 'px';
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll('a, button, [role="button"]').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { dot.classList.add('hovering'); });
+    el.addEventListener('mouseleave', function () { dot.classList.remove('hovering'); });
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-// Section headings slide up
-document.querySelectorAll('.section-title, .section-label').forEach(el => {
-  el.classList.add('reveal-up');
-  reveal.observe(el);
-});
-
-// Service cards fade + slide up
-document.querySelectorAll('.service-card, .service-card-full').forEach(el => {
-  el.classList.add('reveal-up');
-  reveal.observe(el);
-});
-
-// Testimonial cards staggered fade in
-document.querySelectorAll('.testimonial-card').forEach((el, i) => {
-  el.classList.add('reveal-fade');
-  el.style.transitionDelay = `${i * 80}ms`;
-  reveal.observe(el);
-});
-
-// Related cards and location cards slide up
-document.querySelectorAll('.related-card, .location-info-card, .sidebar-cta-card, .sidebar-card').forEach(el => {
-  el.classList.add('reveal-up');
-  reveal.observe(el);
-});
-
-// Stat cards (about page)
-document.querySelectorAll('.stat-card, .value-item').forEach((el, i) => {
-  el.classList.add('reveal-fade');
-  el.style.transitionDelay = `${i * 60}ms`;
-  reveal.observe(el);
-});
-
-// Contact detail rows
-document.querySelectorAll('.detail-row, .contact-detail').forEach(el => {
-  el.classList.add('reveal-up');
-  reveal.observe(el);
-});
+})();
 
 // Cookie consent
 function acceptCookie() {
@@ -86,20 +68,90 @@ if (localStorage.getItem('cookieConsent')) {
   document.getElementById('cookieBanner').style.display = 'none';
 }
 
-// Trust bar items slide in from left on load
-const trustItems = document.querySelectorAll('.trust-bar-inner > *');
-if (trustItems.length) {
-  trustItems.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateX(-16px)';
-    el.style.transition = `opacity 0.4s ease ${i * 90}ms, transform 0.4s ease ${i * 90}ms`;
+// GSAP scroll animations
+(function () {
+  if (typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Trust bar always runs (subtle, short)
+  var trustItems = document.querySelectorAll('.trust-bar-inner > *');
+  if (trustItems.length && !reduced) {
+    gsap.from(trustItems, { x: -20, opacity: 0, duration: 0.4, stagger: 0.09, delay: 0.2, ease: 'power2.out' });
+  }
+
+  if (reduced) return;
+
+  // Section headings
+  document.querySelectorAll('.section-title, .section-label').forEach(function (el) {
+    gsap.from(el, {
+      y: 28, opacity: 0, duration: 0.65, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    });
   });
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      trustItems.forEach(el => {
-        el.style.opacity = '';
-        el.style.transform = '';
-      });
-    }, 200);
+
+  // Service cards grouped per grid
+  document.querySelectorAll('.services-grid').forEach(function (grid) {
+    gsap.from(grid.querySelectorAll('.service-card'), {
+      y: 36, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: grid, start: 'top 85%', toggleActions: 'play none none none' }
+    });
   });
-}
+
+  // Service full cards (services page)
+  document.querySelectorAll('.service-card-full').forEach(function (el, i) {
+    gsap.from(el, {
+      y: 28, opacity: 0, duration: 0.6, delay: i * 0.07, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Testimonial cards
+  document.querySelectorAll('.testimonials-grid').forEach(function (grid) {
+    gsap.from(grid.querySelectorAll('.testimonial-card'), {
+      y: 28, opacity: 0, duration: 0.5, stagger: 0.09, ease: 'power2.out',
+      scrollTrigger: { trigger: grid, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Related cards (areas grid)
+  document.querySelectorAll('.related-grid').forEach(function (grid) {
+    gsap.from(grid.querySelectorAll('.related-card'), {
+      y: 22, opacity: 0, duration: 0.5, stagger: 0.06, ease: 'power2.out',
+      scrollTrigger: { trigger: grid, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // About strip columns
+  var aboutGrid = document.querySelector('.about-strip-grid');
+  if (aboutGrid) {
+    gsap.from(Array.from(aboutGrid.children), {
+      y: 30, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
+      scrollTrigger: { trigger: aboutGrid, start: 'top 82%', toggleActions: 'play none none none' }
+    });
+  }
+
+  // Stat / value cards (about page)
+  document.querySelectorAll('.stat-card, .value-item').forEach(function (el, i) {
+    gsap.from(el, {
+      opacity: 0, y: 20, duration: 0.5, delay: i * 0.06, ease: 'power1.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Contact rows
+  document.querySelectorAll('.detail-row, .contact-detail').forEach(function (el) {
+    gsap.from(el, {
+      x: -18, opacity: 0, duration: 0.5, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Location / sidebar cards
+  document.querySelectorAll('.location-info-card, .sidebar-cta-card, .sidebar-card').forEach(function (el, i) {
+    gsap.from(el, {
+      y: 24, opacity: 0, duration: 0.55, delay: i * 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+})();
