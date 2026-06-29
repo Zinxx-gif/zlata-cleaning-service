@@ -1,5 +1,5 @@
 /* ===== FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after {
@@ -25,7 +25,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.65;
   color: var(--ink);
@@ -33,7 +33,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   line-height: 1.2;
 }
 
@@ -55,7 +55,7 @@ ul { list-style: none; }
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   border-radius: 50px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -66,15 +66,15 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: var(--berry);
-  color: var(--white);
-  border-color: var(--berry);
+  background: var(--teal);
+  color: var(--ink);
+  border-color: var(--teal);
 }
 .btn-primary:hover {
-  background: var(--berry-dark);
-  border-color: var(--berry-dark);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(142,26,90,0.35);
+  box-shadow: 0 6px 24px rgba(0,196,204,0.35);
 }
 
 .btn-outline {
@@ -100,7 +100,7 @@ ul { list-style: none; }
 }
 
 .section-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -111,14 +111,14 @@ ul { list-style: none; }
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   color: var(--ink);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 .section-title span, .section-title em {
-  color: var(--berry);
+  color: var(--teal);
   font-style: italic;
 }
 
@@ -163,7 +163,7 @@ ul { list-style: none; }
   line-height: 1.1;
 }
 .nav-logo-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--ink);
@@ -281,13 +281,13 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   z-index: 200;
-  background: var(--berry);
-  color: var(--white);
+  background: var(--teal);
+  color: var(--ink);
   padding: 0.9rem 1.25rem;
   text-align: center;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 -4px 20px rgba(142,26,90,0.3);
+  box-shadow: 0 -4px 20px rgba(0,196,204,0.25);
   text-decoration: none;
   align-items: center;
   justify-content: center;
@@ -366,7 +366,7 @@ ul { list-style: none; }
   margin-bottom: 1.35rem;
 }
 .hero h1 .accent { color: var(--teal); font-style: italic; }
-.hero h1 .warm   { color: var(--yellow); }
+.hero h1 .warm   { color: var(--teal); }
 
 .hero-sub {
   font-size: 1.05rem;
@@ -403,7 +403,7 @@ ul { list-style: none; }
   margin-bottom: 2px;
 }
 .hero-phone-card .ph-number {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
@@ -504,7 +504,7 @@ ul { list-style: none; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
@@ -538,12 +538,14 @@ ul { list-style: none; }
 .service-card:hover::after { opacity: 1; }
 
 .service-icon {
-  font-size: 1.9rem;
+  width: 28px;
+  height: 28px;
   margin-bottom: 1rem;
   display: block;
   position: relative;
   z-index: 1;
 }
+.service-icon svg { width: 28px; height: 28px; }
 .service-card h3 {
   font-size: 1.15rem;
   color: var(--ink);
@@ -643,7 +645,7 @@ ul { list-style: none; }
   overflow: hidden;
 }
 .quote-band blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-style: italic;
   line-height: 1.4;
@@ -672,7 +674,7 @@ ul { list-style: none; }
   gap: 0.4rem;
 }
 .quote-cta .phone-big {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: #00C4CC;
@@ -800,7 +802,6 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.85rem;
   flex-shrink: 0;
 }
 .service-card-full h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
@@ -860,7 +861,7 @@ ul { list-style: none; }
   font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   margin-bottom: 1.25rem;
 }
-.service-detail-main h2 span { color: var(--berry); font-style: italic; }
+.service-detail-main h2 span { color: var(--teal); font-style: italic; }
 .service-detail-main p {
   color: var(--muted);
   margin-bottom: 1.1rem;
@@ -918,7 +919,7 @@ ul { list-style: none; }
   color: var(--ink);
 }
 .sidebar-cta-card {
-  background: linear-gradient(135deg, var(--berry) 0%, var(--berry-dark) 100%);
+  background: #1A1A2E;
   border-radius: 16px;
   padding: 1.75rem;
   color: var(--white);
@@ -935,10 +936,10 @@ ul { list-style: none; }
   margin-bottom: 1.25rem;
 }
 .sidebar-phone {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--yellow);
+  color: #00C4CC;
   display: block;
   margin-bottom: 0.5rem;
   text-decoration: none;
@@ -1017,7 +1018,7 @@ ul { list-style: none; }
   font-size: clamp(1.6rem, 3.5vw, 2.3rem);
   margin-bottom: 1.25rem;
 }
-.location-body h2 span { color: var(--berry); font-style: italic; }
+.location-body h2 span { color: var(--teal); font-style: italic; }
 .location-body p {
   color: var(--muted);
   margin-bottom: 1rem;
@@ -1109,10 +1110,10 @@ ul { list-style: none; }
   border-top: 3px solid var(--teal);
 }
 .stat-card .num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.9rem;
   font-weight: 700;
-  color: var(--berry);
+  color: var(--teal);
   line-height: 1;
   margin-bottom: 0.3rem;
 }
@@ -1127,7 +1128,7 @@ ul { list-style: none; }
   font-size: clamp(1.7rem, 4vw, 2.5rem);
   margin-bottom: 1.5rem;
 }
-.about-text-main h2 span { color: var(--berry); font-style: italic; }
+.about-text-main h2 span { color: var(--teal); font-style: italic; }
 .about-text-main p {
   color: var(--muted);
   margin-bottom: 1.1rem;
@@ -1172,14 +1173,14 @@ ul { list-style: none; }
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: 1.25rem;
 }
-.contact-left h2 span { color: var(--berry); font-style: italic; }
+.contact-left h2 span { color: var(--teal); font-style: italic; }
 .contact-left > p {
   color: var(--muted);
   margin-bottom: 2rem;
   line-height: 1.7;
 }
 .phone-hero-card {
-  background: linear-gradient(135deg, var(--berry) 0%, var(--berry-dark) 100%);
+  background: #1A1A2E;
   border-radius: 20px;
   padding: 2rem;
   color: var(--white);
@@ -1190,7 +1191,7 @@ ul { list-style: none; }
 }
 .phone-hero-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(142,26,90,0.38);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
 .phone-hero-card .ph-label {
   font-size: 0.72rem;
@@ -1201,7 +1202,7 @@ ul { list-style: none; }
   margin-bottom: 0.4rem;
 }
 .phone-hero-card .ph-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
 }
@@ -1231,29 +1232,20 @@ ul { list-style: none; }
   margin-bottom: 0.18rem;
 }
 .detail-row .val { font-size: 0.92rem; color: var(--ink); font-weight: 500; }
-.detail-row .val a { color: var(--berry); }
+.detail-row .val a { color: var(--teal-dark); }
 .detail-row .val a:hover { text-decoration: underline; }
 
 .map-card {
   border-radius: 20px;
   overflow: hidden;
-  background: var(--teal-light);
   min-height: 440px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  align-self: start;
+  position: sticky;
+  top: 100px;
 }
-.map-card .map-icon {
-  font-size: 4rem;
-  animation: float 2.5s ease-in-out infinite;
-}
-.map-card h3 { font-size: 1.2rem; }
-.map-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.65; }
 .map-link {
   display: inline-flex;
   align-items: center;
@@ -1299,7 +1291,7 @@ ul { list-style: none; }
   background: var(--bg);
 }
 .footer-brand .f-logo-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--white);
@@ -1319,7 +1311,7 @@ ul { list-style: none; }
 .footer-phone:hover { color: var(--white); }
 
 .footer-col h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 0.95rem;
   color: var(--white);
   margin-bottom: 1rem;
@@ -1433,7 +1425,7 @@ ul { list-style: none; }
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.875rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   box-shadow:
     0 0 0 5px rgba(37,211,102,0.18),
     0 0 18px rgba(37,211,102,0.4),
@@ -1473,7 +1465,7 @@ ul { list-style: none; }
   letter-spacing: 2px;
 }
 .rating-score {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--ink);
@@ -1518,7 +1510,7 @@ ul { list-style: none; }
   left: -0.5rem;
   line-height: 1;
   font-style: normal;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraunces', serif;
 }
 .testimonial-footer {
   display: flex;
@@ -1559,6 +1551,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 640px) {
+  .wipe { height: 40px; }
   .nav-links,
   .nav-cta { display: none; }
   .nav-hamburger {
@@ -1576,10 +1569,8 @@ ul { list-style: none; }
   .nav-mobile a { padding: 0.875rem 0; }
 
   .mobile-cta-bar { display: flex; }
-  /* Extra padding covers both sticky bar (~60px) and WA float button (~50px above it) */
-  body { padding-bottom: 150px; }
-
-  .whatsapp-float { bottom: 5rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.8rem; }
+  body { padding-bottom: 80px; }
+  .whatsapp-float { display: none; }
   .hero { padding: 3rem 0 5rem; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { justify-content: center; width: 100%; }
@@ -1633,11 +1624,11 @@ ul { list-style: none; }
               filter 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 .btn-primary:hover {
-  background: var(--berry-dark);
-  border-color: var(--berry-dark);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
   transform: scale(1.03);
   filter: brightness(1.08);
-  box-shadow: 0 6px 24px rgba(142,26,90,0.35);
+  box-shadow: 0 6px 24px rgba(0,196,204,0.35);
 }
 .btn-teal:hover {
   background: var(--teal-dark);
