@@ -25,6 +25,17 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   }
 });
 
+// Hero spotlight — instant, no lerp
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero) return;
+  hero.addEventListener('mousemove', function (e) {
+    var r = hero.getBoundingClientRect();
+    hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+})();
+
 // Scroll progress bar
 (function () {
   var bar = document.getElementById('scroll-progress');

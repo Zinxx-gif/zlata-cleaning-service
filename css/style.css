@@ -302,6 +302,8 @@ ul { list-style: none; }
 
 /* ===== HERO (HOMEPAGE) ===== */
 .hero {
+  --mx: 50%;
+  --my: 50%;
   background: #0D1228 url('../images/IMG_0863.jpg') center center / cover no-repeat;
   color: var(--white);
   padding: 4.5rem 0 7rem;
@@ -315,6 +317,14 @@ ul { list-style: none; }
   background: rgba(13, 18, 40, 0.68);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 480px at var(--mx) var(--my), rgba(0,196,204,0.13) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 .hero > * {
   position: relative;
