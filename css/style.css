@@ -1584,7 +1584,7 @@ ul { list-style: none; }
 
   .about-stats { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr; }
-  /* Single column for related/location cards — long names like Graiguenamanagh overflow 2-col */
+  /* Single column for related/location cards; long names like Graiguenamanagh overflow 2-col */
   .related-grid { grid-template-columns: 1fr; }
 
   /* Trust bar: hide pipes when items wrap to avoid orphaned separators */

@@ -28,7 +28,7 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasPointer    = window.matchMedia('(pointer: fine)').matches;
 
-// Hero spotlight — instant, no lerp; pointer devices only
+// Hero spotlight: instant, no lerp; pointer devices only
 (function () {
   if (reducedMotion || !hasPointer) return;
   var hero = document.querySelector('.hero');
@@ -51,7 +51,7 @@ const hasPointer    = window.matchMedia('(pointer: fine)').matches;
   }, { passive: true });
 })();
 
-// Custom cursor — pointer devices only, skip if reduced motion
+// Custom cursor: pointer devices only, skip if reduced motion
 (function () {
   var dot = document.getElementById('cursor-dot');
   if (!dot || reducedMotion || !hasPointer) return;
@@ -88,7 +88,7 @@ if (localStorage.getItem('cookieConsent')) {
   if (typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
-  // Trust bar entrance (runs even without reduced motion check — subtle, load-time only)
+  // Trust bar entrance (runs even without reduced motion check, subtle and load-time only)
   var trustItems = document.querySelectorAll('.trust-bar-inner > *');
   if (trustItems.length && !reducedMotion) {
     gsap.from(trustItems, { x: -20, opacity: 0, duration: 0.4, stagger: 0.09, delay: 0.2, ease: 'power2.out' });
