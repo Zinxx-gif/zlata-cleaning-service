@@ -1845,3 +1845,20 @@ ul { list-style: none; }
   pointer-events: none;
   box-shadow: 0 0 6px rgba(0,196,204,0.5);
 }
+
+/* ===== COVERAGE MAP CIRCLE ===== */
+.coverage-map-circle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00C4CC;
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 30px rgba(0,196,204,0.15);
+}
+@media (max-width: 640px) {
+  .coverage-map-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
