@@ -312,9 +312,9 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(13, 18, 40, 0.68);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(13, 18, 40, 0.52);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 .hero::after {
   content: '';
@@ -421,24 +421,30 @@ ul { list-style: none; }
 .hero-logo-blob {
   width: 340px;
   height: 340px;
-  background: radial-gradient(ellipse at 50% 60%, rgba(0,196,204,0.18) 0%, rgba(0,196,204,0.08) 45%, transparent 72%);
+  background: radial-gradient(circle at 50% 55%, rgba(0,196,204,0.35) 0%, rgba(0,196,204,0.16) 42%, transparent 68%);
   border-radius: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   overflow: visible;
   box-shadow:
-    0 0 0 14px rgba(0,196,204,0.07),
-    0 0 0 30px rgba(0,196,204,0.04),
-    0 0 0 50px rgba(0,196,204,0.02);
+    0 0 0 14px rgba(0,196,204,0.10),
+    0 0 0 30px rgba(0,196,204,0.06),
+    0 0 0 55px rgba(0,196,204,0.03);
   flex-shrink: 0;
+  position: relative;
+  z-index: 0;
 }
 .hero-logo-blob img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
-  filter: drop-shadow(0 20px 36px rgba(0,0,0,0.55)) drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 20px 36px rgba(0,0,0,0.45)) drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  mask-image: radial-gradient(circle at 50% 58%, black 36%, rgba(0,0,0,0.7) 54%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle at 50% 58%, black 36%, rgba(0,0,0,0.7) 54%, transparent 74%);
+  position: relative;
+  z-index: 0;
 }
 
 
@@ -1043,8 +1049,23 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
-  align-items: center;
+  align-items: start;
   margin-bottom: 4rem;
+}
+.about-portrait-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.about-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(26,26,46,0.1);
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .about-stat-strip {
   display: flex;
@@ -1054,8 +1075,60 @@ ul { list-style: none; }
 }
 .about-stat-strip .stat-card {
   flex: 1;
-  min-width: 130px;
+  min-width: 120px;
 }
+/* JOB PHOTOS */
+.job-photo {
+  margin: 2rem 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(26,26,46,0.09);
+}
+.job-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.job-photo figcaption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0.6rem 1rem;
+  background: var(--bg);
+  line-height: 1.5;
+}
+/* BEFORE / AFTER PAIR */
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+.before-after figure { margin: 0; }
+.before-after img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.before-after figcaption {
+  font-size: 0.77rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  line-height: 1.4;
+}
+.ba-label {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 0.3rem;
+}
+.ba-label--before { background: rgba(26,26,46,0.08); color: var(--ink); }
+.ba-label--after  { background: rgba(0,196,204,0.12); color: var(--teal-dark); }
 .about-portrait-lg {
   display: flex;
   flex-direction: column;
@@ -1497,7 +1570,8 @@ ul { list-style: none; }
   font-size: 0.88rem;
   color: var(--ink);
 }
-.google-label {
+.google-label,
+.facebook-label {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -1505,7 +1579,8 @@ ul { list-style: none; }
   color: var(--muted);
   font-weight: 500;
 }
-.google-label svg {
+.google-label svg,
+.facebook-label svg {
   flex-shrink: 0;
   vertical-align: middle;
 }
@@ -1519,6 +1594,8 @@ ul { list-style: none; }
   .service-sidebar { position: static; }
   .location-intro-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-page-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .before-after { grid-template-columns: 1fr; }
+  .before-after img { height: 240px; }
   .contact-page-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .service-card-full { grid-template-columns: 1fr; gap: 1rem; }
