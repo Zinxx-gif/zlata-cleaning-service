@@ -10,13 +10,11 @@
 
 :root {
   --teal:       #00C4CC;
-  --berry:      #8E1A5A;
   --bg:         #FFFAF5;
   --ink:        #1A1A2E;
   --yellow:     #FFD54F;
   --teal-dark:  #00A8AF;
   --teal-light: #E0F8F9;
-  --berry-dark: #6B1343;
   --muted:      #6B6B80;
   --white:      #FFFFFF;
   --border:     rgba(0,196,204,0.15);
@@ -422,9 +420,9 @@ ul { list-style: none; }
 }
 .hero-logo-blob {
   width: 340px;
-  height: 380px;
+  height: 340px;
   background: radial-gradient(ellipse at 50% 60%, rgba(0,196,204,0.18) 0%, rgba(0,196,204,0.08) 45%, transparent 72%);
-  border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%;
+  border-radius: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -433,7 +431,6 @@ ul { list-style: none; }
     0 0 0 14px rgba(0,196,204,0.07),
     0 0 0 30px rgba(0,196,204,0.04),
     0 0 0 50px rgba(0,196,204,0.02);
-  animation: blob-morph 9s ease-in-out infinite;
   flex-shrink: 0;
 }
 .hero-logo-blob img {
@@ -444,16 +441,6 @@ ul { list-style: none; }
   filter: drop-shadow(0 20px 36px rgba(0,0,0,0.55)) drop-shadow(0 4px 10px rgba(0,0,0,0.3));
 }
 
-@keyframes blob-morph {
-  0%,100% { border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%; }
-  33%      { border-radius: 48% 52% 54% 46% / 46% 54% 46% 54%; }
-  66%      { border-radius: 52% 48% 44% 56% / 58% 42% 58% 42%; }
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
 
 /* ===== SQUEEGEE DIVIDERS ===== */
 .wipe {
@@ -512,9 +499,8 @@ ul { list-style: none; }
   background: var(--white);
   border-radius: 16px;
   padding: 2.25rem;
-  border-left: 4px solid var(--teal);
   box-shadow: 0 2px 16px rgba(26,26,46,0.06);
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: box-shadow 0.25s ease, outline-color 0.25s ease;
   position: relative;
   overflow: hidden;
   text-decoration: none;
@@ -532,8 +518,7 @@ ul { list-style: none; }
   transition: opacity 0.22s;
 }
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(26,26,46,0.12);
+  box-shadow: 0 0 0 2px var(--teal), 0 6px 24px rgba(0,196,204,0.14);
 }
 .service-card:hover::after { opacity: 1; }
 
@@ -593,13 +578,12 @@ ul { list-style: none; }
   width: 240px;
   height: 240px;
   background: var(--white);
-  border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   box-shadow: 0 16px 48px rgba(0,196,204,0.25);
-  animation: blob-morph 10s ease-in-out infinite;
 }
 .about-portrait img {
   width: 90%;
@@ -694,14 +678,6 @@ ul { list-style: none; }
   padding: 3.5rem 0 5rem;
   position: relative;
   overflow: hidden;
-}
-.page-hero::after {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(0,196,204,0.1) 0%, transparent 70%);
-  pointer-events: none;
 }
 .page-hero--photo {
   background-size: cover;
@@ -984,19 +960,18 @@ ul { list-style: none; }
   background: var(--white);
   border-radius: 12px;
   padding: 1.1rem 1.25rem;
-  border-left: 3px solid var(--teal);
   text-decoration: none;
   color: var(--ink);
   font-size: 0.88rem;
   font-weight: 500;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition: background 0.18s, color 0.18s;
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 .related-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+  background: var(--teal-light);
+  color: var(--ink);
 }
 .related-card .rc-icon {
   font-size: 1.2rem;
@@ -1035,7 +1010,7 @@ ul { list-style: none; }
   background: var(--bg);
   border-radius: 14px;
   padding: 1.4rem;
-  border-left: 4px solid var(--teal);
+  border-top: 3px solid var(--teal);
 }
 .location-info-card h4 {
   font-size: 0.85rem;
@@ -1081,13 +1056,12 @@ ul { list-style: none; }
   width: 300px;
   height: 300px;
   background: var(--teal-light);
-  border-radius: 55% 45% 48% 52% / 52% 48% 52% 48%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,196,204,0.2);
-  animation: blob-morph 9s ease-in-out infinite;
 }
 .portrait-blob img {
   width: 90%;
@@ -1597,25 +1571,13 @@ ul { list-style: none; }
 
 /* ===== HOVER EFFECTS & MICRO-INTERACTIONS ===== */
 
-/* 1. Service cards: lift + left border expands */
-.service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-width 0.3s ease;
-}
-.service-card::after {
-  transition: opacity 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 36px rgba(26,26,46,0.14);
-  border-left-width: 7px;
-}
+/* 1. Service cards: teal ring glow on hover, no lift */
 .service-card-full {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-width 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .service-card-full:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 32px rgba(26,26,46,0.12);
-  border-left-width: 9px;
 }
 
 /* 2. Buttons: scale + brightness */
@@ -1909,3 +1871,112 @@ details > summary > span[aria-hidden="true"] { display: inline-block; transition
 details[open] > summary > span[aria-hidden="true"] { transform: rotate(45deg); }
 details[open] > summary { background: rgba(0,196,204,0.06); }
 details > summary:hover { background: rgba(0,196,204,0.04); }
+
+/* ===== ALTERNATE CLOSING SECTION (replaces quote-band on secondary pages) ===== */
+.page-close {
+  background: var(--bg);
+  padding: 3rem 0 3.5rem;
+  border-top: 1px solid rgba(26,26,46,0.08);
+  text-align: center;
+}
+.page-close__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.page-close__phone {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  transition: color 0.18s;
+}
+.page-close__phone:hover { color: var(--teal-dark); }
+.page-close__sub { font-size: 0.82rem; color: var(--muted); }
+.page-close__sub a { color: var(--teal); text-decoration: none; }
+
+/* ===== SOLO SERVICE LAYOUT (single-column, no sidebar) ===== */
+.service-detail--solo .service-detail-grid {
+  grid-template-columns: 1fr;
+  max-width: 740px;
+  margin: 0 auto;
+}
+.inline-cta {
+  margin: 2.5rem 0 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(26,26,46,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.inline-cta__text {
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+}
+.inline-cta__num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  display: block;
+  line-height: 1.1;
+  flex-shrink: 0;
+  text-align: center;
+}
+.inline-cta__hours {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ===== SOLO SERVICES LIST (replaces teal-light related section on solo pages) ===== */
+.services-inline {
+  background: var(--white);
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid rgba(26,26,46,0.07);
+}
+.services-inline .container { max-width: 740px; }
+.services-inline h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.services-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.services-inline-list a {
+  font-size: 0.85rem;
+  color: var(--teal-dark);
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.services-inline-list a:hover {
+  background: var(--teal-light);
+  border-color: var(--teal);
+}
