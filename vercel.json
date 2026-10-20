@@ -1,4 +1,5 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [{ "source": "/window-cleaning", "destination": "/services", "permanent": true }]
 }
